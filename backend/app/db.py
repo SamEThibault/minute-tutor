@@ -25,7 +25,10 @@ class User(Model):
     language = CharField()
     expertise = CharField()
     email = CharField()
+    ratingSum = IntegerField(default=0)
+    ratingNum = IntegerField(default=0)
     rating = IntegerField(default=0)
+    credentials = CharField()
 
     class Meta:
         database = db

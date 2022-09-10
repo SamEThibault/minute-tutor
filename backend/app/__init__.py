@@ -53,7 +53,6 @@ def settings():
         language = request.form["language"]
         expertise = request.form["expertise"]
         email = request.form["email"]
-        rating = request.form["rating"]
 
         user = User.update(
             age = age,
@@ -63,8 +62,7 @@ def settings():
             gender = gender,
             language = language,
             expertise = expertise,
-            email = email,
-            rating = rating
+            email = email
         ).where(User.username == username)
         user.execute()
 
@@ -96,3 +94,29 @@ def tutors():
     print(tutors_list)
     return {"tutors": tutors_list}
 
+# update a tutor's rating
+@app.route("/ratings", methods=["POST"])
+def ratings():
+    
+    newRating = int(request.form["rating"])
+    username = request.form["username"]
+
+    # find the user using the name, then add newRating to their current sumRating
+    tutor = User.get_or_none(User.username == username)
+
+    if tutor != None:
+        user = User.update(
+            ratingSum = tutor.ratingSum + newRating,
+            ratingNum = tutor.ratingNum + 1,
+        ).where(User.username == username)
+        user.execute()
+
+        user = User.get_or_none(User.username == username)
+        rating = user.ratingSum // user.ratingNum
+        user = User.update(
+            rating = rating
+        )
+        user.execute()
+
+        return {"rating" : rating}
+    
