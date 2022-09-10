@@ -124,3 +124,34 @@ def ratings():
 
         return {"rating" : rating}
     
+# when student requests the tutor
+@app.route("/requesttutor", methods=["POST"])
+def request_tutor():
+    username = request.form["username"]
+
+    user = User.update(
+        available = "no"
+    ).where(User.username == username)
+    user.execute()
+
+    return {"body": "success", "status": 200}
+
+# called when the tutor closes the session (from a button or smt)
+@app.route("/closesession", methods=["POST"])
+def close_session():
+    username = request.form["username"]
+
+    user = User.update(
+    available = "yes"
+    ).where(User.username == username)
+    user.execute()
+
+    return {"body": "success", "status": 200}
+
+# get the status of the tutor (fetched every 5 seconds)
+@app.route("/checkstatus", methods=["POST"])
+def check_status():
+    if User.get_or_none(User.username == request.form["username"]).available == "no":
+        return {"body" : "A student has requested your assistance", "status" : 400}
+    else:
+        return {"body" : "Feel free to relax", "status" : 200}
