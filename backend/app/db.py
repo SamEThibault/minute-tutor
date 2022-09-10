@@ -28,6 +28,7 @@ class User(Model):
     ratingSum = IntegerField(default=0)
     ratingNum = IntegerField(default=0)
     rating = IntegerField(default=0)
+    available = CharField(default="yes")
     credentials = CharField()
 
     class Meta:

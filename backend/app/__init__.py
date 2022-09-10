@@ -16,7 +16,7 @@ def signin():
 
     if user != None:
         if user.password == password:
-            return {"body" : "Login successful", "status" : 200}
+            return {"body": "Login Successful", "userType" : user.userType, "status" : 200}
         else:
             return {"body" : "Incorrect password, please try again", "status" : 400}
 
@@ -78,7 +78,7 @@ def tutors():
     tutors_list = []
 
     for user in User.select():
-        if user.userType == "tutor" and subject in user.expertise:
+        if user.userType == "tutor" and subject in user.expertise and user.available == "yes":
             
             tags = user.tags.split(",")
             print(tags)
@@ -124,3 +124,38 @@ def ratings():
 
         return {"rating" : rating}
     
+# when student requests the tutor
+@app.route("/requesttutor", methods=["POST"])
+def request_tutor():
+    username = request.form["username"]
+    try:
+        user = User.update(
+            available = "no"
+        ).where(User.username == username)
+        user.execute()
+
+        return {"body": "success", "status": 200}
+    except:
+        return {"body": "failed", "status": 400}
+
+# called when the tutor closes the session (from a button or smt)
+@app.route("/closesession", methods=["POST"])
+def close_session():
+    username = request.form["username"]
+    try:
+        user = User.update(
+        available = "yes"
+        ).where(User.username == username)
+        user.execute()
+
+        return {"body": "success", "status": 200}
+    except:
+        return {"body": "success", "status": 200}
+
+# get the status of the tutor (fetched every 5 seconds)
+@app.route("/checkstatus", methods=["POST"])
+def check_status():
+    if User.get_or_none(User.username == request.form["username"]).available == "no":
+        return {"body" : "A student has requested your assistance", "status" : 400}
+    else:
+        return {"body" : "Feel free to relax", "status" : 200}
