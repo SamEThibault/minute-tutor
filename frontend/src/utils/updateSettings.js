@@ -1,5 +1,5 @@
 export const updateSettings = (username, age, zoomLink, userType, tags, 
-    gender, language, expertise, email, rating) => {
+    gender, language, expertise, email) => {
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 

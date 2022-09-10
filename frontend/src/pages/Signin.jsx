@@ -53,7 +53,8 @@ function Signin() {
         <input
           type="text"
           className="sigin-user-name"
-          placeholder="User Name"
+          placeholder="Name"
+          value={username}
           onChange={(e) => {
             dispatch(setUsername(e.target.value));
           }}
@@ -62,6 +63,7 @@ function Signin() {
           type="text"
           className="signin-password"
           placeholder="Password"
+          value={password}
           onChange={(e) => {
             dispatch(setPassword(e.target.value));
           }}
