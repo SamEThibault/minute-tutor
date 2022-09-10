@@ -78,7 +78,7 @@ def tutors():
     tutors_list = []
 
     for user in User.select():
-        if user.userType == "tutor" and subject in user.expertise:
+        if user.userType == "tutor" and subject in user.expertise and user.available == "yes":
             
             tags = user.tags.split(",")
             print(tags)
