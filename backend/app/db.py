@@ -23,7 +23,8 @@ class User(Model):
     tags = CharField()
     gender = CharField()
     language = CharField()
-    Expertise = CharField()
+    expertise = CharField()
+    email = CharField()
 
     class Meta:
         database = db
