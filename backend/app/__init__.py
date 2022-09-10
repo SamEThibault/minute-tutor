@@ -16,7 +16,7 @@ def signin():
 
     if user != None:
         if user.password == password:
-            return {"body" : "Login successful", "status" : 200}
+            return {"body": "Login Successful", "userType" : user.userType, "status" : 200}
         else:
             return {"body" : "Incorrect password, please try again", "status" : 400}
 
@@ -128,25 +128,29 @@ def ratings():
 @app.route("/requesttutor", methods=["POST"])
 def request_tutor():
     username = request.form["username"]
+    try:
+        user = User.update(
+            available = "no"
+        ).where(User.username == username)
+        user.execute()
 
-    user = User.update(
-        available = "no"
-    ).where(User.username == username)
-    user.execute()
-
-    return {"body": "success", "status": 200}
+        return {"body": "success", "status": 200}
+    except:
+        return {"body": "failed", "status": 400}
 
 # called when the tutor closes the session (from a button or smt)
 @app.route("/closesession", methods=["POST"])
 def close_session():
     username = request.form["username"]
+    try:
+        user = User.update(
+        available = "yes"
+        ).where(User.username == username)
+        user.execute()
 
-    user = User.update(
-    available = "yes"
-    ).where(User.username == username)
-    user.execute()
-
-    return {"body": "success", "status": 200}
+        return {"body": "success", "status": 200}
+    except:
+        return {"body": "success", "status": 200}
 
 # get the status of the tutor (fetched every 5 seconds)
 @app.route("/checkstatus", methods=["POST"])
