@@ -3,6 +3,7 @@ import { useState } from "react";
 import Container from "../components/Container";
 import Notifications from "../components/Notifications";
 import Preview from "../components/Preview";
+import TutorProfile from "../components/TutorProfile";
 import Nav from "./Nav";
 function Tutors() {
   const pages = {
@@ -38,17 +39,18 @@ function Tutors() {
           <Notifications />
         </>
       );
+    case pages.profile:
+      return (
+        <>
+          <Nav />
+          <TutorProfile />
+        </>
+      );
     default:
       return (
         <>
-          <div className="tutors-container">
           <Nav />
-            <Container classProp={"tutors"}>
-              <div className="tutor-link tutors-preview">Preview</div>
-              <div className="tutor-link tutors-notifications">Notifications</div>
-              <div className="tutor-link tutors-profile">Profile</div>
-            </Container>
-          </div>
+          <TutorProfile />
         </>
       );
   }
