@@ -1,7 +1,9 @@
 import {React, useState} from "react"
+import {useDispatch} from "react-redux";
 
 function Students()
 {
+    const dispatch = useDispatch();
     const [subject, setSubject] = useState("");
     const handleSubject = (subject) =>
     {
