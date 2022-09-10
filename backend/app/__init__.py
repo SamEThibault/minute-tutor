@@ -55,10 +55,14 @@ def settings():
         expertise = request.form["expertise"]
         email = request.form["email"]
 
+        format_tags = ""
+        for tag in tags:
+            format_tags += (tag + ", ")
+        
         user = User.update(
             age = age,
             zoomLink = zoomLink,
-            tags = tags,
+            tags = format_tags,
             gender = gender,
             language = language,
             expertise = expertise,
@@ -79,12 +83,15 @@ def tutors():
 
     for user in User.select():
         if user.userType == "tutor" and subject in user.expertise:
+
+            tags = user.tags.split(", ")
+            
             tutors_list.append(
                 {"username" : user.username,
                 "age" : user.age,
                 "zoomLink" : user.zoomLink,
                 "userType": user.userType,
-                "tags": user.tags,
+                "tags": tags,
                 "gender": user.gender,
                 "language": user.language,
                 "expertise": user.expertise,
