@@ -29,6 +29,8 @@ def signup():
         print(request)
         username = request.form["username"]
         password = request.form["password"]
+        userType = request.form["userType"]
+
     except Exception as e:
         print(e)
         return {"body" : "Error", "status" : 400}
@@ -37,7 +39,7 @@ def signup():
     # username must be unique, if it already exists, return error
     if q.exists():
         return {"body" : "User already exists!", "status" : 400}
-    User.create(username=username, password=password)
+    User.create(username=username, password=password, userType = userType)
     return {"body" : "Success", "status" : 200}
 
 # request contains updated user info, update profile in db 
@@ -47,7 +49,6 @@ def settings():
         username = request.form["username"]
         age = request.form["age"]
         zoomLink = request.form["zoomLink"]
-        # userType = request.form["userType"]
         tags = request.form["tags"]
         gender = request.form["gender"]
         language = request.form["language"]
@@ -57,7 +58,6 @@ def settings():
         user = User.update(
             age = age,
             zoomLink = zoomLink,
-            userType = "tutor",
             tags = tags,
             gender = gender,
             language = language,
