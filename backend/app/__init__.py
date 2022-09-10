@@ -47,7 +47,7 @@ def settings():
         username = request.form["username"]
         age = request.form["age"]
         zoomLink = request.form["zoomLink"]
-        userType = request.form["userType"]
+        # userType = request.form["userType"]
         tags = request.form["tags"]
         gender = request.form["gender"]
         language = request.form["language"]
@@ -57,7 +57,7 @@ def settings():
         user = User.update(
             age = age,
             zoomLink = zoomLink,
-            userType = userType,
+            userType = "tutor",
             tags = tags,
             gender = gender,
             language = language,
