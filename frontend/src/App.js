@@ -2,6 +2,8 @@ import "./App.css";
 import "./styles/app.scss";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import Students from "./pages/Students";
+
 import {
   BrowserRouter,
   Routes,
@@ -16,6 +18,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/" element={<Signin />} />
             <Route path="/tutors" element={<Tutors />} />
+            <Route path="/students" element={<Students />} />
             {/* <Route path="/find-tutors" element={< />} /> */}
           </Routes>
         </BrowserRouter>
