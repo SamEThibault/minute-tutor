@@ -16,9 +16,9 @@ export const signup = (userName, password) => {
   };
 
   fetch("http://127.0.0.1:5000/signup", requestOptions)
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((result) => {
-      return result.status;
+      return result;
     })
     .catch((error) => {
       console.log("error", error);
