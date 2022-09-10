@@ -53,6 +53,7 @@ def settings():
         language = request.form["language"]
         expertise = request.form["expertise"]
         email = request.form["email"]
+        rating = request.form["rating"]
 
         user = User.update(
             age = age,
@@ -62,7 +63,8 @@ def settings():
             gender = gender,
             language = language,
             expertise = expertise,
-            email = email
+            email = email,
+            rating = rating
         ).where(User.username == username)
         user.execute()
 
@@ -87,7 +89,8 @@ def tutors():
                 "tags": user.tags,
                 "gender": user.gender,
                 "language": user.language,
-                "expertise": user.expertise}
+                "expertise": user.expertise,
+                "rating": user.rating}
             )
 
     print(tutors_list)
