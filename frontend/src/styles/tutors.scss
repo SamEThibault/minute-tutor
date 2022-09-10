@@ -7,11 +7,12 @@
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     // height: 100%;
-    border:solid 1px black;
+    // border:solid 1px black;
+    grid-gap: 1rem;
 }
 .tutor-link{
     cursor:pointer;
-    border:solid 1px black;
+    // border:solid 1px black;
     
 }
 .tutors-notifications{
