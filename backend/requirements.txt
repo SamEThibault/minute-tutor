@@ -1,0 +1,6 @@
+flask
+peewee
+PyMySQL
+python-dotenv
+flask-cors
+cryptography
