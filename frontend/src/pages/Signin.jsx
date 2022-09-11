@@ -53,7 +53,7 @@ function Signin() {
         <input
           type="text"
           className="sigin-user-name"
-          placeholder="User Name"
+          placeholder="Name"
           onChange={(e) => {
             dispatch(setUsername(e.target.value));
           }}

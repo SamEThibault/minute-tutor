@@ -6,16 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setPassword,
   setUsername,
-  setUserType,
   setVerifyPassword,
 } from "../redux/authenticationSlice";
+import { setUserType } from "../redux/userSlice";
 function Signup(e) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState("");
-  const { username, password, verifyPassword, userType } = useSelector(
+  const { username, password, verifyPassword } = useSelector(
     ({ auth }) => auth
   );
+  const {  userType } = useSelector(
+    ({ user }) => user
+  );
+
 
   const handleSignup = async (e) => {
     e.preventDefault();

@@ -6,7 +6,6 @@ export const authenticationSlice = createSlice({
     username: "",
     password: "",
     verifyPassword: "",
-    userType: "student",
   },
   reducers: {
     setUsername: (state, { payload }) => {
@@ -19,13 +18,11 @@ export const authenticationSlice = createSlice({
     setVerifyPassword: (state, { payload }) => {
       state.verifyPassword = payload;
     },
-    setUserType: (state, { payload }) => {
-      state.userType = payload;
-    },
+
   },
 });
 
 //Action creators are generated for each case reducer function
-export const { setUsername, setPassword, setVerifyPassword, setUserType } =
+export const { setUsername, setPassword, setVerifyPassword } =
   authenticationSlice.actions;
 export default authenticationSlice.reducer;
