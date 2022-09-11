@@ -53,35 +53,45 @@ function Signin() {
     <div className="signin">
       <form action="" className="signin-form col-c-c" onSubmit={handleSignIn}>
         <h1 className="text-6xl">Minute Tutor</h1>
-        <input
-          type="text"
-          className="sigin-user-name"
-          placeholder="Name"
-          value={username}
-          onChange={(e) => {
-            dispatch(setUsername(e.target.value));
-          }}
-        />
-        <input
-          type="text"
-          className="signin-password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            dispatch(setPassword(e.target.value));
-          }}
-        />
-        <button className="signin-button" onClick={handleSignIn}>
+        <div className="signin-inputs col-c-c">
+          {/* USER NAME */}
+          <input
+            type="text"
+            className="py-2 pl-2 text-lg rounded sigin-user-name"
+            placeholder="Name"
+            value={username}
+            onChange={(e) => {
+              dispatch(setUsername(e.target.value));
+            }}
+          />
+          {/* PASSWORD*/}
+          <input
+            type="text"
+            className="py-2 pl-2 text-lg rounded signin-password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              dispatch(setPassword(e.target.value));
+            }}
+          />
+        </div>
+
+        <button
+          className="signin-button bg-green-500 py-2 text-white rounded"
+          onClick={handleSignIn}
+        >
           Sign In
         </button>
-        <button
-          className="signup-link"
-          onClick={() => {
-            navigate("/signup");
-          }}
-        >
-          Sign Up
-        </button>
+        <div className="signup-link row-fe-c">
+          <button
+            className=""
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
     </div>
   );

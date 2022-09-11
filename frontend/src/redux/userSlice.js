@@ -26,8 +26,9 @@ export const userSlice = createSlice({
       state.userType = payload;
     },
     setTags: (state, { payload }) => {
+      console.log(...state.tags);
       state.tags = [...state.tags, payload];
-      state.tagInput = "";
+      // state.tagInput = "";
     },
     setTagInput: (state, { payload }) => {
       state.tagInput = payload;
@@ -56,10 +57,9 @@ export const userSlice = createSlice({
     setAvailable: (state, { payload }) => {
       state.available = payload;
     },
-    setUpdateTutor: (
-      state,
-      { zoomLink, tags, language, gender, email, expertise }
-    ) => {
+    setUpdateTutor: (state, { payload }) => {
+      console.log(payload);
+      let { zoomLink, tags, language, gender, email, expertise } = payload;
       state.zoomLink = zoomLink;
       state.tags = tags;
       state.langauge = language;

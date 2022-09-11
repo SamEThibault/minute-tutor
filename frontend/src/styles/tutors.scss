@@ -1,29 +1,75 @@
-.tutors-container{
-    // height: 100vh;
+.tutors-container {
+  // height: 100vh;
 }
-.tutors{
-    position: relative;
-    margin-top: 5rem;
+.profile-img {
+  width: 700px;
 }
-.tutor-link{
-    cursor:pointer;
-    // border:solid 1px black;
-    
+.tutor {
 }
-.tutors-notifications{
-    grid-row: span 2;
-    grid-column: 2/3;
+.tutors {
+  position: relative;
+  margin-top: 5rem;
+  h1 {
+    text-align: center;
+    width: 700px;
+  }
+  input,
+  button {
+    padding: 0.5rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    text-align: center;
+  }
+  .tag {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  .tags-list {
+    width: 100%;
+  }
+}
+.tutor-details-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  width: 900px;
+  padding: 2rem 3rem;
+  .tags-list {
+    column-gap: 1.5rem;
+  }
+  h1 {
+    text-align: left;
+  }
+  h3 {
+    font-weight: 250;
+  }
+}
+.tutor-profile-content {
+  row-gap: 1rem;
+}
+.tutor-link {
+  cursor: pointer;
+  // border:solid 1px black;
+}
+.tutors-notifications {
+  grid-row: span 2;
+  grid-column: 2/3;
 }
 
 // TUTOR PROFILE
-.tutor-profile-container{
-    height:100vh;
+.tutor-profile-container {
+  height: 100vh;
 }
 //TUTOR PREVIEW
-.preview-container{
-    height: 100vh;
+.preview-container {
+  height: 100vh;
 }
 //NOTIFICATIONS
-.notifications{
-    height:100vh;
+.notifications {
+  height: 100vh;
+}
+.no-student {
+  font-weight: 300;
+  color: rgb(133, 130, 130);
+}
+.tutor-zoom {
 }

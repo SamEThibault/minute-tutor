@@ -52,7 +52,6 @@ function Tutors() {
     <>
       <Nav />
       <Container classProp={"tutors col-c-c"}>
-        <img src={FEMALE} alt="" />
         <TutorProfile />
         <Preview />
         <Notifications />

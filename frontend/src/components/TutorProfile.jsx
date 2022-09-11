@@ -10,6 +10,7 @@ import {
   setZoomLink,
 } from "../redux/userSlice";
 import Container from "./Container";
+import FEMALE from "../assets/FEMALE.svg";
 
 function TutorProfile() {
   const {
@@ -66,19 +67,18 @@ function TutorProfile() {
   };
   return (
     <div id="profile" className="tutor-profile-container">
-      <Container>
+      <Container classProp={"tutor"}>
         <div className="tutor-profile-content  col-c-fs">
+          <div className="profile-img row-c-c">
+            <img src={FEMALE} alt="" />
+          </div>
+
           {/* NAME */}
-          <input
-            className="tutor-input shadow-md"
-            type="text"
-            readOnly
-            value={username}
-          />
+          <h1 className="tutor-input text-6xl">{username}</h1>
           {/* ZOOM */}
 
           <input
-            className="tutor-input shadow-md"
+            className="tutor-input "
             type="text"
             value={zoomLink}
             placeholder="Zoom Link"
@@ -90,7 +90,7 @@ function TutorProfile() {
 
           <form className="tags" onSubmit={handleAddTag}>
             <input
-              className="tutor-input shadow-md"
+              className="tutor-input "
               type="text"
               placeholder="tags"
               value={tagInput}
@@ -103,16 +103,15 @@ function TutorProfile() {
                 }
               }}
             />
-            <div className="tags-list">
-              <p>Tags</p>
+            <div className="tags-list row-se-c mt-5">
               {tags?.map((tag) => (
-                <div className="tag">{tag}</div>
+                <div className="tag  py-2 px-5 rounded">{tag}</div>
               ))}
             </div>
           </form>
           {/* EXPERTISE */}
           <input
-            className="tutor-input shadow-md"
+            className="tutor-input "
             type="text"
             placeholder="Expertise"
             value={expertise}
@@ -122,7 +121,7 @@ function TutorProfile() {
           />
           {/* LANGUAGE */}
           <input
-            className="tutor-input shadow-md"
+            className="tutor-input "
             type="text"
             placeholder="Language"
             value={language}
@@ -132,7 +131,7 @@ function TutorProfile() {
           />
           {/* GENDER */}
           <input
-            className="tutor-input shadow-md"
+            className="tutor-input "
             type="text"
             placeholder="Gender"
             value={gender}
@@ -142,7 +141,7 @@ function TutorProfile() {
           />
           {/* EMAIL */}
           <input
-            className="tutor-input shadow-md"
+            className="tutor-input "
             type="text"
             placeholder="Email"
             value={email}
@@ -153,7 +152,7 @@ function TutorProfile() {
         </div>
         <div className="tutor-profile-save">
           <button
-            className="border-b"
+            className="border-b bg-green-500 text-white mt-5"
             onClick={(e) => {
               updateSettings(e);
             }}

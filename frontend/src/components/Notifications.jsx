@@ -5,11 +5,11 @@ function Notifications() {
   const { available, zoomLink } = useSelector(({ user }) => user);
   return (
     <div id="notifications" className="notifications col-c-c">
-      {available ? (
+      <h1 className="text-6xl mb-6">Pending Students</h1>
+      {!available ? (
         <>
-          <h1>Pending Students</h1>
           <a
-            className="bg-green-300 rounded px-4 py-2"
+            className="tutor-zoom bg-green-500 rounded text-white text-4xl px-10 py-5"
             href={zoomLink}
             target="noreferrer"
           >
@@ -17,8 +17,8 @@ function Notifications() {
           </a>
         </>
       ) : (
-        <h1 className="bg-red-500 px-4 text-white py-2 rounded">
-          No students requesting help.
+        <h1 className="no-student text-3xl px-4  py-2 rounded">
+          No students requesting help . . .
         </h1>
       )}
     </div>

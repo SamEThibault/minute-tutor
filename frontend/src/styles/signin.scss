@@ -1,7 +1,16 @@
-input{
-    border:solid 1px black;
-
+.signin-form {
+  height: 100vh;
+  row-gap: 2rem;
+  input {
+    border: solid 1px black;
+  }
 }
-.signin-button{
-    border:solid 1px black;
+.signin-button {
+}
+.signup-link {
+  width: 700px;
+
+  button {
+    width: auto;
+  }
 }
