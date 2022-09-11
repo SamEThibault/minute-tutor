@@ -7,6 +7,7 @@ export const userSlice = createSlice({
     zoomLink: "",
     userType: "student",
     tags: [],
+    langauge:"",
     tagInput: "",
     gender: "",
     language: "",

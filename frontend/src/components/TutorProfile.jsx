@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setEmail,
   setExpertise,
+  setGender,
+  setLanguage,
   setTagInput,
   setTags,
   setZoomLink,
@@ -118,6 +120,26 @@ function TutorProfile() {
             value={expertise}
             onChange={(e) => {
               dispatch(setExpertise(e.target.value));
+            }}
+          />
+          {/* LANGUAGE */}
+          <input
+            className="tutor-input shadow-md"
+            type="text"
+            placeholder="Language"
+            value={language}
+            onChange={(e) => {
+              dispatch(setLanguage(e.target.value));
+            }}
+          />
+          {/* GENDER */}
+          <input
+            className="tutor-input shadow-md"
+            type="text"
+            placeholder="Gender"
+            value={gender}
+            onChange={(e) => {
+              dispatch(setGender(e.target.value));
             }}
           />
           {/* EMAIL */}
