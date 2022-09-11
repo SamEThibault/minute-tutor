@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setPassword, setUsername } from "../redux/authenticationSlice";
+import { setUpdateTutor } from "../redux/userSlice";
 
 function Signin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [error, setError] = useState("");
   const { username, password, verifyPassword } = useSelector(
     ({ auth }) => auth
   );
@@ -33,10 +33,13 @@ function Signin() {
     fetch("http://127.0.0.1:5000/signin", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        if (result.status == 200) {
+        if (result.status === 200) {
           navigate("/tutors");
-          alert("Logged in");
+          alert("Logged in as tutor");
+          dispatch(setUpdateTutor(result.info));
+        } else if (result.status === 220) {
+          navigate("/students");
+          alert("Logged in as student");
         } else {
           alert(result.body);
         }

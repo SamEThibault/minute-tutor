@@ -16,10 +16,7 @@ function Signup(e) {
   const { username, password, verifyPassword } = useSelector(
     ({ auth }) => auth
   );
-  const {  userType } = useSelector(
-    ({ user }) => user
-  );
-
+  const { userType } = useSelector(({ user }) => user);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -51,7 +48,7 @@ function Signup(e) {
       .then((response) => response.json())
       .then((result) => {
         if (result.status === 200) {
-          navigate("/tutors");
+          navigate(userType === "student" ? "/students" : "/tutors");
           alert("Logged in");
         } else {
           alert(result.body);
@@ -71,12 +68,14 @@ function Signup(e) {
           <div
             className="signup-student"
             onClick={() => dispatch(setUserType("student"))}
+            style={{ color: userType === "student" ? "green" : "black" }}
           >
             Student
           </div>
           <div
             className="signup-tutor"
             onClick={() => dispatch(setUserType("tutor"))}
+            style={{ color: userType === "tutor" ? "green" : "black" }}
           >
             Tutor
           </div>

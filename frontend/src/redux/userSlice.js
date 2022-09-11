@@ -3,16 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    age:0,
+    age: 0,
     zoomLink: "",
-    userType: "student",
+    userType: "tutor",
     tags: [],
-    langauge:"",
+    langauge: "",
     tagInput: "",
     gender: "",
     language: "",
     expertise: "",
     email: "",
+    topicChoice: "",
+    tutorList: [],
+    selectedTutor: {},
+    available: false,
   },
   reducers: {
     setZoomLink: (state, { payload }) => {
@@ -39,6 +43,29 @@ export const userSlice = createSlice({
     setEmail: (state, { payload }) => {
       state.email = payload;
     },
+    setTopicChoice: (state, { payload }) => {
+      state.topicChoice = payload;
+    },
+    setTutorList: (state, { payload }) => {
+      state.tutorList = payload;
+    },
+    setSelectedTutor: (state, { payload }) => {
+      state.selectedTutor = payload;
+    },
+    setAvailable: (state, { payload }) => {
+      state.available = payload;
+    },
+    setUpdateTutor: (
+      state,
+      { zoomLink, tags, language, gender, email, expertise }
+    ) => {
+      state.zoomLink = zoomLink;
+      state.tags = tags;
+      state.langauge = language;
+      state.gender = gender;
+      state.email = email;
+      state.expertise = expertise;
+    },
   },
 });
 
@@ -52,5 +79,10 @@ export const {
   setLanguage,
   setExpertise,
   setEmail,
+  setTopicChoice,
+  setTutorList,
+  setSelectedTutor,
+  setAvailable,
+  setUpdateTutor
 } = userSlice.actions;
 export default userSlice.reducer;
