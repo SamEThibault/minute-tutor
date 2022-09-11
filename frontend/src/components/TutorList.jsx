@@ -13,12 +13,13 @@ function TutorList() {
           key={i}
           onClick={() => {
             dispatch(setSelectedTutor(tutor));
-            console.log(tutor);
           }}
         >
-          <div className="tutor-header">
-            <h1>{tutor?.username}</h1>
-            <h3>{tutor?.expertise}</h3>
+          <div className="tutor-header col-c-fs">
+            <h1 className="text-4xl">{tutor?.username}</h1>
+            <h3 className="text-grey-500 text-2xl">
+              {tutor?.expertise ?? "No Expertise"}
+            </h3>
           </div>
           <div className="tutor-info">
             <div>

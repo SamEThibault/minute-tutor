@@ -9,7 +9,7 @@ function Notifications() {
   return (
     <div id="notifications" className="notifications col-c-c">
       <h1 className="text-6xl mb-6">Pending Students</h1>
-      {!available ? (
+      {available ? (
         <>
           <a
             className="tutor-zoom bg-green-500 rounded text-white text-4xl px-10 py-5"
