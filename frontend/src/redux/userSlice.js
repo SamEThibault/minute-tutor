@@ -28,6 +28,7 @@ export const userSlice = createSlice({
     },
     setTags: (state, { payload }) => {
       state.tags = [...state.tags, payload];
+      state.tagInput = "";
     },
     setTagInput: (state, { payload }) => {
       state.tagInput = payload;
