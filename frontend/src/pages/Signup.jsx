@@ -49,7 +49,7 @@ function Signup(e) {
       .then((result) => {
         if (result.status === 200) {
           navigate(userType === "student" ? "/students" : "/tutors");
-          alert("Logged in");
+          // alert("Logged in");
         } else {
           alert(result.body);
         }

@@ -35,11 +35,11 @@ function Signin() {
       .then((result) => {
         if (result.status === 200) {
           navigate("/tutors");
-          alert("Logged in as tutor");
+          // alert("Logged in as tutor");
           dispatch(setUpdateTutor(result.info));
         } else if (result.status === 220) {
           navigate("/students");
-          alert("Logged in as student");
+          // alert("Logged in as student");
         } else {
           alert(result.body);
         }

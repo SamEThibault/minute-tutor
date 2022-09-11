@@ -57,8 +57,8 @@ function TutorProfile() {
     fetch("http://127.0.0.1:5000/settings", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        if (result.status === 200) alert("WORKING");
-        else alert("FAILED");
+        if (result.status === 200) console.log("WORKING");
+        else console.log("FAILED");
       })
       .catch((error) => {
         alert(error);
