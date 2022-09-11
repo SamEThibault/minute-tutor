@@ -37,8 +37,10 @@ function Tutors() {
       .then((result) => {
         if (result.status == 400) {
           dispatch(setAvailable(false));
+        }else if (result.status == 200) {
+          dispatch(setAvailable(true))
         }
-      })
+      }) 
       .catch((error) => {
         // alert(error);
       });
@@ -47,7 +49,7 @@ function Tutors() {
   useEffect(() => {
     setInterval(() => {
       handleRefresh();
-    }, 5000);
+    }, 10000);
   }, []);
   return (
     <>

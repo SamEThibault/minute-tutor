@@ -16,7 +16,7 @@ export const userSlice = createSlice({
     topicChoice: "",
     tutorList: [],
     selectedTutor: {},
-    available: false,
+    available: true,
     meetingActive: false,
   },
   reducers: {
@@ -56,7 +56,9 @@ export const userSlice = createSlice({
       state.selectedTutor = payload;
     },
     setAvailable: (state, { payload }) => {
+      console.log("yo")
       state.available = payload;
+      console.log(state.available)
     },
     setUpdateTutor: (state, { payload }) => {
       console.log(payload);

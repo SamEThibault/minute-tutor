@@ -165,7 +165,7 @@ def close_session():
 
         return {"body": "success", "status": 200}
     except:
-        return {"body": "success", "status": 200}
+        return {"body": "L", "status": 400}
 
 # get the status of the tutor (fetched every 5 seconds)
 @app.route("/checkstatus", methods=["POST"])
