@@ -12,7 +12,7 @@ export const getTutors = (subject) => {
       redirect: 'follow'
     };
     
-    fetch("localhost:5000/tutors", requestOptions)
+    fetch("http://127.0.0.1:5000/tutors", requestOptions)
       .then(response => response.json())
       .then((result) => {
         return result

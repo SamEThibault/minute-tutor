@@ -66,7 +66,7 @@ function TutorProfile() {
       });
   };
   return (
-    <div className="tutor-profile-container">
+    <div id="profile" className="tutor-profile-container">
       <Container>
         <div className="tutor-profile-content  col-c-fs">
           {/* NAME */}

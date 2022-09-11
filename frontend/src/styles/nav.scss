@@ -1,0 +1,12 @@
+.nav-container{
+    position: fixed;
+    height: 40px;
+    left:0;
+    top:0;
+    right:0;
+    z-index: 5;
+    background-color: white;
+}
+.nav{
+    column-gap: 6rem;
+}
