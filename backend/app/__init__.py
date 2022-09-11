@@ -54,7 +54,7 @@ def settings():
         language = request.form["language"]
         expertise = request.form["expertise"]
         email = request.form["email"]
-
+        
         user = User.update(
             age = age,
             zoomLink = zoomLink,
@@ -79,19 +79,23 @@ def tutors():
 
     for user in User.select():
         if user.userType == "tutor" and subject in user.expertise:
+            
+            tags = user.tags.split(",")
+            print(tags)
+            
             tutors_list.append(
                 {"username" : user.username,
                 "age" : user.age,
                 "zoomLink" : user.zoomLink,
                 "userType": user.userType,
-                "tags": user.tags,
+                "tags": tags,
                 "gender": user.gender,
                 "language": user.language,
                 "expertise": user.expertise,
                 "rating": user.rating}
             )
 
-    print(tutors_list)
+    #print(tutors_list)
     return {"tutors": tutors_list}
 
 # update a tutor's rating
