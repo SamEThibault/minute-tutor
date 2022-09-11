@@ -62,28 +62,29 @@ function Signup(e) {
   };
 
   return (
-    <div className="signup">
-      <form action="" className="signup-form col-c-c" onSubmit={handleSignup}>
+    <div className="signin">
+      <form action="" className="signin-form col-c-c" onSubmit={handleSignup}>
+        <h1 className="text-6xl">Minute Tutor</h1>
         <div className="signup-usertype row-se-c">
           <div
-            className="signup-student"
+            className="tutor-student row-c-c text-2xl shadow-md rounded py-2 px-5"
             onClick={() => dispatch(setUserType("student"))}
             style={{ color: userType === "student" ? "green" : "black" }}
           >
             Student
           </div>
           <div
-            className="signup-tutor"
+            className="tutor-student row-c-c text-2xl shadow-md rounded py-2 px-5"
             onClick={() => dispatch(setUserType("tutor"))}
             style={{ color: userType === "tutor" ? "green" : "black" }}
           >
             Tutor
           </div>
         </div>
-        <h1>Minute Tutor</h1>
+
         <input
           type="text"
-          className="signup-user-name"
+          className="py-2 pl-2 text-lg rounded sigin-user-name"
           placeholder="User Name"
           onChange={(e) => {
             dispatch(setUsername(e.target.value));
@@ -91,7 +92,7 @@ function Signup(e) {
         />
         <input
           type="text"
-          className="signup-password"
+          className="py-2 pl-2 text-lg rounded signin-password"
           placeholder="Password"
           onChange={(e) => {
             dispatch(setPassword(e.target.value));
@@ -99,17 +100,20 @@ function Signup(e) {
         />
         <input
           type="text"
-          className="signup-confirm"
+          className="py-2 pl-2 text-lg rounded signin-password"
           placeholder="Confirm Password"
           onChange={(e) => {
             dispatch(setVerifyPassword(e.target.value));
           }}
         />
-        <button className="signup-button" onClick={handleSignup}>
+        <button
+          className="signin-button bg-green-500 text-2xl py-2 text-white rounded"
+          onClick={handleSignup}
+        >
           Sign Up
         </button>
         <button
-          className="signin-link"
+          className="signup-link row-fe-c mt-5"
           onClick={() => {
             navigate("/");
           }}

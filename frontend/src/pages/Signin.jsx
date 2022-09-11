@@ -77,7 +77,7 @@ function Signin() {
         </div>
 
         <button
-          className="signin-button bg-green-500 py-2 text-white rounded"
+          className="signin-button text-2xl bg-green-500 py-2 text-white rounded"
           onClick={handleSignIn}
         >
           Sign In

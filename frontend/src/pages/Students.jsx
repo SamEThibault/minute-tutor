@@ -4,7 +4,7 @@ import TutorList from "../components/TutorList";
 import { setTopicChoice, setTutorList } from "../redux/userSlice";
 
 function Students() {
-  const { subject } = useSelector(({ user }) => user);
+  const { topicChoice } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
 
   const handleTopicChoice = (subject) => {
@@ -29,7 +29,6 @@ function Students() {
         if (result.tutors) {
           console.log(result.tutors);
           dispatch(setTutorList(result.tutors));
-          alert("Filter Selected");
         } else {
           alert("Filter Failed");
         }
@@ -41,12 +40,13 @@ function Students() {
   };
   return (
     <div className="students col-c-c">
-      <h1>What subject would you like help in...</h1>
-      <div className="subject-filter col-c-fs">
+      <h1 className="text-5xl">What subject would you like help in...</h1>
+      <div className="subject-filter row-c-c">
         {["computer science", "life sciences", "history", "biology"].map(
           (subject) => (
             <button
-              className="shadow-md"
+              className="subject py-3 text-xl my-10 rounded"
+              style={{ color: topicChoice === subject ? "green" : "black" }}
               onClick={() => {
                 handleTopicChoice(subject);
               }}
