@@ -17,6 +17,7 @@ export const userSlice = createSlice({
     tutorList: [],
     selectedTutor: {},
     available: false,
+    meetingActive: false,
   },
   reducers: {
     setZoomLink: (state, { payload }) => {
@@ -55,6 +56,10 @@ export const userSlice = createSlice({
     setAvailable: (state, { payload }) => {
       state.available = payload;
     },
+    setMeetingActive: (state, { payload }) => {
+      state.meetingActive = payload;
+      console.log(state.meetingActive)
+    },
     setUpdateTutor: (
       state,
       { zoomLink, tags, language, gender, email, expertise }
@@ -83,6 +88,7 @@ export const {
   setTutorList,
   setSelectedTutor,
   setAvailable,
-  setUpdateTutor
+  setUpdateTutor,
+  setMeetingActive
 } = userSlice.actions;
 export default userSlice.reducer;

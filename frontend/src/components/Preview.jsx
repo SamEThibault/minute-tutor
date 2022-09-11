@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../pages/Nav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setMeetingActive } from "../redux/userSlice";
 
 function Preview() {
     const {
@@ -13,7 +14,9 @@ function Preview() {
         email,
         zoomLink,
         joinZoom,
+        
       } = useSelector(({ user }) => user);
+      const dispatch = useDispatch();
   return (
     <>
       <div id="preview" className="preview-container">
@@ -38,7 +41,7 @@ function Preview() {
           href={zoomLink}
           target="noreferrer"
           className="zoom-link shadow-md bg-green-300 rounded"
-          onClick={joinZoom}
+          onClick={()=>{dispatch(setMeetingActive(true))}}
         >
             Join Zoom
         </a>

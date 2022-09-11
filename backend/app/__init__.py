@@ -17,6 +17,7 @@ def signin():
     if user != None:
         if user.password == password:
             tags = user.tags.split(",")
+            print(tags)
             if user.userType == "tutor":
                 return {"body": "Login Successful", "userType" : user.userType, "status" : 200, "info": 
                 {"username" : user.username,
