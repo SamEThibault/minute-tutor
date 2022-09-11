@@ -22,7 +22,7 @@ function Tutors() {
     myHeaders.append("Access-Control-Allow-Origin", "*");
 
     var urlencoded = new URLSearchParams();
-    console.log(username);
+    // console.log(username);
     urlencoded.append("username", username);
 
     var requestOptions = {
@@ -35,7 +35,7 @@ function Tutors() {
     fetch("http://127.0.0.1:5000/checkstatus", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         if (result.status == 400) {
           dispatch(setAvailable(false));
         }
