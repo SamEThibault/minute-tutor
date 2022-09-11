@@ -52,7 +52,7 @@ function Signin() {
   return (
     <div className="signin">
       <form action="" className="signin-form col-c-c" onSubmit={handleSignIn}>
-        <h1>Minute Tutor</h1>
+        <h1 className="text-6xl">Minute Tutor</h1>
         <input
           type="text"
           className="sigin-user-name"

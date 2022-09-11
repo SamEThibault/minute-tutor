@@ -27,6 +27,7 @@ export const userSlice = createSlice({
     },
     setTags: (state, { payload }) => {
       state.tags = [...state.tags, payload];
+      state.tagInput = "";
     },
     setTagInput: (state, { payload }) => {
       state.tagInput = payload;
@@ -83,6 +84,6 @@ export const {
   setTutorList,
   setSelectedTutor,
   setAvailable,
-  setUpdateTutor
+  setUpdateTutor,
 } = userSlice.actions;
 export default userSlice.reducer;
