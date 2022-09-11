@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../pages/Nav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setMeetingActive } from "../redux/userSlice";
 
 function Preview() {
   const {
@@ -14,6 +15,7 @@ function Preview() {
     joinZoom,
   } = useSelector(({ user }) => user);
   const { username } = useSelector(({ auth }) => auth);
+  const dispatch = useDispatch();
   return (
     <>
       <div id="preview" className="preview-container">

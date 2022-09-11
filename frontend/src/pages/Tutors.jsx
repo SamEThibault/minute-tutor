@@ -9,9 +9,10 @@ import FEMALE from "../assets/FEMALE.svg";
 import { useEffect } from "react";
 import { setAvailable } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import MeetingEnd from "../components/MeetingEnd";
 
 function Tutors() {
-  const { username } = useSelector(({ auth }) => auth);
+  const { username, meetingActive } = useSelector(({ auth }) => auth);
   const { available } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
 
@@ -55,6 +56,7 @@ function Tutors() {
         <TutorProfile />
         <Preview />
         <Notifications />
+      {meetingActive && <MeetingEnd />  }
       </Container>
     </>
   );

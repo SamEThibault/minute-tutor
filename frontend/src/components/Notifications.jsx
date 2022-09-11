@@ -1,8 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setMeetingActive } from "../redux/userSlice";
 
 function Notifications() {
   const { available, zoomLink } = useSelector(({ user }) => user);
+  const dispatch = useDispatch()
+
   return (
     <div id="notifications" className="notifications col-c-c">
       <h1 className="text-6xl mb-6">Pending Students</h1>
