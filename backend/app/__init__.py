@@ -16,7 +16,21 @@ def signin():
 
     if user != None:
         if user.password == password:
-            return {"body": "Login Successful", "userType" : user.userType, "status" : 200}
+            tags = user.tags.split(",")
+            if user.userType == "tutor":
+                return {"body": "Login Successful", "userType" : user.userType, "status" : 200, "info": 
+                {"username" : user.username,
+                    "age" : user.age,
+                    "zoomLink" : user.zoomLink,
+                    "userType": user.userType,
+                    "tags": tags,
+                    "gender": user.gender,
+                    "language": user.language,
+                    "expertise": user.expertise,
+                    "email": user.email,
+                    "rating": user.rating}}
+            else:
+                return {"body": "Login Successful", "status": 220}
         else:
             return {"body" : "Incorrect password, please try again", "status" : 400}
 
@@ -155,7 +169,9 @@ def close_session():
 # get the status of the tutor (fetched every 5 seconds)
 @app.route("/checkstatus", methods=["POST"])
 def check_status():
-    if User.get_or_none(User.username == request.form["username"]).available == "no":
-        return {"body" : "A student has requested your assistance", "status" : 400}
-    else:
-        return {"body" : "Feel free to relax", "status" : 200}
+    user = User.get_or_none(User.username == request.form["username"])
+    if user != None:
+        if user.available == "no":
+            return {"body" : "A student has requested your assistance", "status" : 400}
+    
+    return {"body" : "Feel free to relax", "status" : 200}
