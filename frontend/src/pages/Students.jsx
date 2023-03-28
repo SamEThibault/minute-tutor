@@ -23,7 +23,7 @@ function Students() {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:5000/tutors", requestOptions)
+    fetch("/tutors", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.tutors) {

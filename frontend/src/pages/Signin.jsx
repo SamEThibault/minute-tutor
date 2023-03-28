@@ -30,7 +30,7 @@ function Signin() {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:5000/signin", requestOptions)
+    fetch("/signin", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.status === 200) {

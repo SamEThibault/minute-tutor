@@ -32,7 +32,7 @@ function Tutors() {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:5000/checkstatus", requestOptions)
+    fetch("/checkstatus", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.status == 400) {
