@@ -1,11 +1,17 @@
 from flask import Flask, request
 from dotenv import load_dotenv
 from flask_cors import CORS
-from app.db import User
+from db import User
 
 load_dotenv()
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="", static_folder='./build', template_folder='build')
 CORS(app)
+
+# Serve Build folder
+@app.route("/", methods=['GET'])
+def frontend():
+    return app.send_static_file('index.html')
+
 
 # check if pw matches db profile, if so, return status code
 @app.route("/signin", methods=["POST"])
@@ -176,3 +182,6 @@ def check_status():
             return {"body" : "A student has requested your assistance", "status" : 400}
     
     return {"body" : "Feel free to relax", "status" : 200}
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)

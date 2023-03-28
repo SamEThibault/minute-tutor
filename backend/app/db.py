@@ -4,32 +4,25 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-db = MySQLDatabase(
-    os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-)
-print(db)
+db = SqliteDatabase('.minute-tutor.db')
 
 class User(Model):
     password = CharField()
     username = CharField()
     age = IntegerField(default=0)
-    zoomLink = CharField()
+    zoomLink = CharField(default="https://zoom.us")
     userType = CharField()
     # for tags, it's all in a string, separated by commas
-    tags = CharField()
-    gender = CharField()
-    language = CharField()
-    expertise = CharField()
-    email = CharField()
+    tags = CharField(default="defaulttags")
+    gender = CharField(default="default")
+    language = CharField(default="english")
+    expertise = CharField(default="default")
+    email = CharField(default="email")
     ratingSum = IntegerField(default=0)
     ratingNum = IntegerField(default=0)
     rating = IntegerField(default=0)
     available = CharField(default="yes")
-    credentials = CharField()
+    credentials = CharField(default="default")
 
     class Meta:
         database = db
